@@ -65,7 +65,7 @@ Users can switch between languages using the navigation buttons at the top of th
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/StudentPerformanceApp.git
+   git clone https://github.com/a7x3a/StudentPerformanceApp.git
    cd StudentPerformanceApp
    ```
 
@@ -144,36 +144,9 @@ StudentPerformanceApp/
 - **Scikit-learn** - Machine learning (Random Forest Regressor)
 - **Joblib** - Model serialization
 
-## 📈 Model Information
-
-- **Algorithm:** Random Forest Regressor
-- **Input Features:** 14 features
-- **Target:** Exam Score (0-100 scale)
-- **Output:** Predicted exam score with performance level and pass/fail status
-- **Dataset Size:** 14,003 student records
-- **Data Type:** All features are numeric (no encoding required)
-
-## 🎨 Design Features
-
-- **Clean Interface:** Uses Streamlit's default theme for a clean, professional look
-- **Custom Header:** Beautiful gradient header with developer information
-- **Bilingual Support:** Full English and Kurdish language support
-- **Responsive Layout:** Two-column form layout for better organization
-- **Input Validation:** All inputs are validated with min/max values from the dataset
-- **Clear Results:** Results displayed using Streamlit's native components (metrics, success messages, info boxes)
-
-## 📄 License
-
-This project uses a dataset that may be subject to its own licensing terms. Please refer to the dataset source for licensing information.
-
 ## 🙏 Acknowledgments
 
 - **Developer:** Ahmad Omar ([a7x3a.dev](https://a7x3a.dev))
-- Dataset contributors and researchers who made this project possible
-
-## 📧 Contact
-
-For questions or suggestions, please open an issue on GitHub or contact the developer.
 
 ---
 
