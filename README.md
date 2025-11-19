@@ -1,91 +1,65 @@
 # 🎓 Student Performance Prediction System
 
-A machine learning web application that predicts student academic performance (CGPA) based on various academic and personal factors. Built with Streamlit and Random Forest Regression.
+A machine learning web application that predicts student exam scores based on various academic and personal factors. Built with Streamlit and Random Forest Regression.
 
-**Developed by:** [Ahmad Omar](https://github.com/yourusername)
+**Developed by:** [Ahmad Omar](https://a7x3a.dev)
 
 ## 📊 Dataset
 
-This project uses the **Students Academic Performance Evaluation Dataset** from Mendeley Data.
-
-**Dataset Source:** [https://data.mendeley.com/datasets/dc3797vf3t/1](https://data.mendeley.com/datasets/dc3797vf3t/1)
+This project uses a merged student performance dataset from Zenodo.
 
 **Dataset Information:**
-- **Total Records:** 1,195 students
-- **Total Features:** 31 features
-- **Target Variable:** Current CGPA (0-4.0 scale)
-- **Data Collection:** Online survey from Computer Science and Engineering students at a private university in Bangladesh
+- **Total Records:** 14,003 students
+- **Total Features:** 14 features
+- **Target Variable:** Exam Score (0-100 scale)
+- **File Format:** CSV (`merged_dataset.csv`)
 
-## 📖 What is CGPA?
+## 🎯 What is Exam Score?
 
-**CGPA** stands for **Cumulative Grade Point Average**. It is a standardized method used to measure a student's overall academic performance across all semesters or courses.
+The model predicts a student's **Exam Score** on a scale of **0-100**, representing their expected performance on an exam.
 
-### How CGPA Works:
-- **Scale:** Typically measured on a 0-4.0 scale (in this dataset)
-- **Calculation:** CGPA is calculated by averaging the Grade Point Averages (GPA) from all completed semesters
-- **Purpose:** Provides a single number that represents a student's overall academic achievement
+### Exam Score Scale Interpretation:
+- **90-100** = Excellent (نایاب)
+- **80-89** = Very Good (زۆر باش)
+- **70-79** = Good (باش)
+- **60-69** = Average (مامناوەند)
+- **Below 60** = Needs Improvement (پێویستی بە باشترکردن هەیە)
 
-### CGPA Scale Interpretation:
-- **4.0** = Excellent (A grade, 90-100%)
-- **3.0-3.9** = Very Good (B grade, 80-89%)
-- **2.0-2.9** = Good (C grade, 70-79%)
-- **1.0-1.9** = Average (D grade, 60-69%)
-- **Below 1.0** = Needs Improvement (F grade, below 60%)
+### Pass/Fail Criteria:
+- **60 or above** = Pass (تێپەڕ)
+- **Below 60** = Fail (شکست)
 
-### In This Application:
-The model predicts the student's **CGPA** (0-4.0), which is then converted to a **percentage** (0-100%) for easier understanding. For example:
-- CGPA of 3.44 = 86% performance accuracy
-- CGPA of 3.0 = 75% performance accuracy
-- CGPA of 2.5 = 62.5% performance accuracy
+## 🔍 Features (14 Factors)
 
-This percentage represents the student's **expected academic performance level**, not a probability of success.
+The model uses **14 factors** to predict student performance, organized into the following categories:
 
-## 🔍 Features (Factors)
+### 👤 Demographic Information (4 factors)
+1. **Gender** - Student's gender (Male/Female)
+2. **Age** - Student's age
+3. **Learning Style** - Preferred learning method (Visual, Auditory, Kinesthetic, Reading/Writing)
+4. **Motivation** - Motivation level (Low, Medium, High)
 
-The model uses **31 factors** to predict student performance, organized into the following categories:
+### 📖 Study Behaviors & Engagement (6 factors)
+5. **Study Hours** - Hours studied per week
+6. **Attendance** - Attendance rate (%)
+7. **Assignment Completion** - Assignment completion rate (%)
+8. **Online Courses** - Number of online courses taken
+9. **Discussions** - Participation in discussions (Yes/No)
+10. **Extracurricular** - Engagement in extracurricular activities (Yes/No)
 
-### 👤 Basic Information (6 factors)
-1. **University Admission year** - Year when student was admitted
-2. **Gender** - Student's gender
-3. **Age** - Student's age
-4. **H.S.C passing year** - Year when Higher Secondary Certificate was passed
-5. **Program** - Academic program/field of study
-6. **Current Semester** - Current semester number
+### 💻 Resources & Technology (4 factors)
+11. **Resources** - Resource access level (Low, Medium, High)
+12. **Internet** - Internet access availability (Yes/No)
+13. **EduTech** - Use of educational technology (Yes/No)
+14. **Stress Level** - Stress level (Low, Medium, High)
 
-### 📚 Academic Information (8 factors)
-7. **Do you have meritorious scholarship?** - Scholarship status
-8. **Status of your English language proficiency** - English proficiency level
-9. **Average attendance on class** - Class attendance percentage
-10. **Did you ever fall in probation?** - Probation history
-11. **Did you ever got suspension?** - Suspension history
-12. **Do you attend in teacher consultancy for academic problems?** - Teacher consultation usage
-13. **What was your previous SGPA?** - Previous Semester Grade Point Average
-14. **How many Credit did you have completed?** - Total credits completed
+## 🌍 Language Support
 
-### 📖 Study Habits (6 factors)
-15. **How many hour do you study daily?** - Daily study hours
-16. **How many times do you seat for study in a day?** - Number of study sessions per day
-17. **What is your preferable learning mode?** - Preferred learning method
-18. **How many hour do you spent daily on your skill development?** - Daily skill development hours
-19. **What are the skills do you have?** - Skills possessed by student
-20. **What is you interested area?** - Area of interest
+The application supports **two languages**:
+- **🇬🇧 English** - Full English interface
+- **🇹🇯 کوردی (Kurdish)** - Complete Kurdish translation with RTL support
 
-### 💻 Technology & Transportation (4 factors)
-21. **Do you use smart phone?** - Smartphone usage
-22. **Do you have personal Computer?** - Personal computer ownership
-23. **Do you use University transportation?** - University transport usage
-24. **How many hour do you spent daily in social media?** - Daily social media hours
-
-### 👥 Personal & Lifestyle (7 factors)
-25. **What is your relationship status?** - Relationship status
-26. **Are you engaged with any co-curriculum activities?** - Extracurricular participation
-27. **With whom you are living with?** - Living situation
-28. **Do you have any health issues?** - Health problems
-29. **Do you have any physical disabilities?** - Physical disabilities
-30. **What is your monthly family income?** - Family monthly income
-
-### 🎯 Target Variable
-31. **What is your current CGPA?** - Current Cumulative Grade Point Average (0-4.0 scale)
+Users can switch between languages using the navigation buttons at the top of the page.
 
 ## 🚀 Installation
 
@@ -116,8 +90,8 @@ The model uses **31 factors** to predict student performance, organized into the
    ```
 
 5. **Download the dataset**
-   - Download from: [Mendeley Dataset](https://data.mendeley.com/datasets/dc3797vf3t/1)
-   - Place the Excel file as `Students_Performance_data_set.xlsx` in the project root
+   - Ensure `merged_dataset.csv` is in the project root directory
+   - The dataset should contain 14 feature columns plus `ExamScore` and `FinalGrade`
 
 ## 📝 Usage
 
@@ -126,10 +100,12 @@ The model uses **31 factors** to predict student performance, organized into the
 python train.py
 ```
 This will:
-- Load the dataset
-- Encode categorical variables
+- Load the dataset from `merged_dataset.csv`
 - Train a Random Forest Regressor
-- Save the model and encoders as `model.pkl` and `encoders.pkl`
+- Save the model as `model.pkl`
+- Display training and testing R² scores
+
+**Note:** All features in the dataset are already numeric, so no encoding is required.
 
 ### 2. Run the Web Application
 ```bash
@@ -138,9 +114,13 @@ streamlit run app.py
 The application will open in your default web browser at `http://localhost:8501`
 
 ### 3. Make Predictions
-- Fill in all the required fields in the web interface
-- Click "🔮 Predict Performance Accuracy"
-- View the predicted performance as a percentage (0-100%)
+1. Select your preferred language (English or Kurdish)
+2. Fill in all the required fields in the form:
+   - **Demographic Information** (Gender, Age, Learning Style, Motivation)
+   - **Study Behaviors & Engagement** (Study Hours, Attendance, Assignments, etc.)
+   - **Resources & Technology** (Resources, Internet, EduTech, Stress Level)
+3. Click "🔮 Predict Exam Score" (or "🔮 پێشبینی نمرەی تاقیکردنەوە" in Kurdish)
+4. View the predicted exam score (0-100) along with performance level and pass/fail status
 
 ## 📁 Project Structure
 
@@ -150,8 +130,7 @@ StudentPerformanceApp/
 ├── app.py                          # Streamlit web application
 ├── train.py                        # Model training script
 ├── model.pkl                       # Trained Random Forest model
-├── encoders.pkl                    # Label encoders for categorical variables
-├── Students_Performance_data_set.xlsx  # Dataset file
+├── merged_dataset.csv              # Dataset file (CSV format)
 ├── requirements.txt                # Python dependencies
 ├── README.md                       # This file
 └── venv/                           # Virtual environment (not in git)
@@ -164,23 +143,33 @@ StudentPerformanceApp/
 - **Pandas** - Data manipulation
 - **Scikit-learn** - Machine learning (Random Forest Regressor)
 - **Joblib** - Model serialization
-- **OpenPyXL** - Excel file reading
 
 ## 📈 Model Information
 
 - **Algorithm:** Random Forest Regressor
-- **Input Features:** 30 features
-- **Target:** Current CGPA (converted to percentage accuracy)
-- **Output:** Performance accuracy percentage (0-100%)
+- **Input Features:** 14 features
+- **Target:** Exam Score (0-100 scale)
+- **Output:** Predicted exam score with performance level and pass/fail status
+- **Dataset Size:** 14,003 student records
+- **Data Type:** All features are numeric (no encoding required)
+
+## 🎨 Design Features
+
+- **Clean Interface:** Uses Streamlit's default theme for a clean, professional look
+- **Custom Header:** Beautiful gradient header with developer information
+- **Bilingual Support:** Full English and Kurdish language support
+- **Responsive Layout:** Two-column form layout for better organization
+- **Input Validation:** All inputs are validated with min/max values from the dataset
+- **Clear Results:** Results displayed using Streamlit's native components (metrics, success messages, info boxes)
 
 ## 📄 License
 
-This project uses the dataset from Mendeley Data which is licensed under **CC BY 4.0**.
+This project uses a dataset that may be subject to its own licensing terms. Please refer to the dataset source for licensing information.
 
 ## 🙏 Acknowledgments
 
-- **Dataset Contributors:** Arifa Tur Rahman, Suhala Lamia, Arafat Hossain Shishir, Maria Misty Barsa
-- **Dataset Source:** [Mendeley Data Repository](https://data.mendeley.com/datasets/dc3797vf3t/1)
+- **Developer:** Ahmad Omar ([a7x3a.dev](https://a7x3a.dev))
+- Dataset contributors and researchers who made this project possible
 
 ## 📧 Contact
 
@@ -188,5 +177,4 @@ For questions or suggestions, please open an issue on GitHub or contact the deve
 
 ---
 
-**Note:** Make sure to download the dataset from the Mendeley link and place it in the project directory before running the application.
-
+**Note:** Make sure the `merged_dataset.csv` file is in the project directory and the model has been trained (`model.pkl` exists) before running the application.
